@@ -1,11 +1,10 @@
 {
   "index": {
     "title": "Introduction",
-    "type": "page",
-    "hidden": true
+    "type": "page"
   },
-  "docs": {
-    "title": "Docs",
+  "fullbook": {
+    "title": "Full Book",
     "type": "page"
   },
   "examples": {

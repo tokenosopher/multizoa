@@ -10,7 +10,7 @@ const Feature = ({ text, icon }) => (
 );
 
 const TITLE_WITH_TRANSLATIONS = {
-  "en-US": "React Hooks for Data Fetching",
+  "en-US": "Explaining Society's Place In The Biological Universe",
   "es-ES": "Biblioteca React Hooks para la obtención de datos",
   "zh-CN": "用于数据请求的 React Hooks 库",
   "pt-BR": " React Hooks para Data Fetching",

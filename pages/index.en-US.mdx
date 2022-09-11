@@ -1,5 +1,5 @@
 ---
-title: React Hooks for Data Fetching
+title: Explaining human society's place in the biological universe
 ---
 
 import Callout from 'nextra-theme-docs/callout'
@@ -9,76 +9,30 @@ import Bleed from 'nextra-theme-docs/bleed'
 {
 // wrapped with {} to mark it as javascript so mdx will not put it under a p tag
 }
-{<h1 className="text-center font-extrabold md:text-5xl mt-8">SWR</h1>}
+{<h1 className="text-center font-extrabold md:text-5xl mt-8">Multizoa</h1>}
 
-<Bleed><Features/></Bleed>
+[//]: # (<Bleed><Features/></Bleed>)
 
-The name “SWR” is derived from `stale-while-revalidate`, a HTTP cache invalidation strategy popularized by [HTTP RFC 5861](https://tools.ietf.org/html/rfc5861).
-SWR is a strategy to first return the data from cache (stale), then send the fetch request (revalidate), and finally come with the up-to-date data.
+## What is a multizoa organism?
 
-<Callout emoji="✅">
-  With SWR, components will get a stream of data updates <strong>constantly</strong> and <strong>automatically</strong>.<br/>
-  And the UI will be always <strong>fast</strong> and <strong>reactive</strong>.
-</Callout>
+Simply put, a multizoa organism [^1] is an organism whose fundamental structural and functional unit is the human. This is similar to how the fundamental structural and functional unit of a multicellular organism is the cell.
 
-<div className="mt-16 mb-20 text-center">
-  [Get Started](/docs/getting-started) · [Examples](/examples/basic) · [Blog](/blog/swr-v1) · [GitHub Repository](https://github.com/vercel/swr)
-</div>
+We believe that human society is a multizoa organism, and that analyzing human society through this lens offers valuable insights into our place in the universe and our potential future as a species.
 
-## Overview
+## Find out more
 
-```jsx
-import useSWR from 'swr'
+To get more information on the theory, this website provides the following resources:
 
-function Profile() {
-  const { data, error } = useSWR('/api/user', fetcher)
+* Watch the video [Is Human Society an Organism Made of Many Animals](/fullbook/getting-started).
+* Read the book [Understanding our Whole, redefining our understanding of human society](/fullbook/getting-started).
+* Read the paper [Is Human Society an Organism Made Of Many Animals](/fullbook/getting-started).
 
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
-  return <div>hello {data.name}!</div>
-}
-```
-
-In this example, the `useSWR` hook accepts a `key` string and a `fetcher` function. `key` is a unique identifier of the data (normally the API URL)
-and will be passed to `fetcher`. `fetcher` can be any asynchronous function which returns the data, you can use the native fetch or tools like Axios.
-
-The hook returns 2 values: `data` and `error`, based on the status of the request.
-
-## Features
-
-With just one single line of code, you can simplify the logic of data fetching in your project, and also have all these amazing features out-of-the-box:
-
-- **Fast**, **lightweight** and **reusable** data fetching
-- Built-in **cache** and request deduplication
-- **Real-time** experience
-- Transport and protocol agnostic
-- SSR / ISR / SSG support
-- TypeScript ready
-- React Native
-
-SWR has you covered in all aspects of speed, correctness, and stability to help you build better experiences:
-
-- Fast page navigation
-- Polling on interval
-- Data dependency
-- Revalidation on focus
-- Revalidation on network recovery
-- Local mutation (Optimistic UI)
-- Smart error retry
-- Pagination and scroll position recovery
-- React Suspense
-
-And a lot [more](/docs/getting-started).
+All of it is provided for free, and with a Creative Commons license.
 
 ## Community
 
-<p className="flex h-6">
-  <img alt="stars" src="https://badgen.net/github/stars/vercel/swr" className="inline-block mr-2"/>
-  <img alt="downloads" src="https://badgen.net/npm/dt/swr" className="inline-block mr-2"/>
-  <img alt="license" src="https://badgen.net/npm/license/swr" className="inline-block mr-2"/>
-</p>
+The website also provides the ability to comment on each page, where applicable. Feel free to write your opinion, but please be respectful when doing so.
 
-SWR is created by the same team behind [Next.js](https://nextjs.org), the React framework.  
-Follow [@vercel](https://twitter.com/vercel) on Twitter for future project updates.
+#### Footnotes
 
-Feel free to join the [discussions on GitHub](https://github.com/vercel/swr/discussions)!
+[^1]: Etymologically, multizoa means many animals (Zoia is the Greek term for animal)

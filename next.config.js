@@ -7,14 +7,14 @@ const withNextra = require("nextra")({
 
 module.exports = withNextra({
   i18n: {
-    locales: ["en-US", "zh-CN", "es-ES", "pt-BR", "ja", "ko", "ru"],
-    defaultLocale: "en-US",
+    locales: ["en-US"],
+    defaultLocale: "en-US"
   },
   redirects: () => {
     return [
       {
-        source: "/docs",
-        destination: "/docs/getting-started",
+        source: "/fullbook",
+        destination: "/fullbook/getting-started",
         statusCode: 301,
       },
       {

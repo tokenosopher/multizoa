@@ -18,22 +18,12 @@ const Vercel = ({ height = 20 }) => (
   </svg>
 );
 
-const FEEDBACK_LINK_WITH_TRANSLATIONS = {
-  "en-US": "Question? Give us feedback →",
-};
-
 export default {
   projectLink: "https://github.com/vercel/swr",
   docsRepositoryBase: "https://github.com/vercel/swr-site/blob/master/pages",
   search: true,
   unstable_flexsearch: true,
-  feedbackLink: () => {
-    const { locale } = useRouter();
-    return (
-      FEEDBACK_LINK_WITH_TRANSLATIONS[locale] ||
-      FEEDBACK_LINK_WITH_TRANSLATIONS["en-US"]
-    );
-  },
+  // feedbackLink: "Question? Give us feedback →",
   feedbackLabels: "feedback",
   logo: () =>  (
       <>
@@ -104,7 +94,7 @@ export default {
         <meta
           name="og:title"
           content={
-            title ? title + " – SWR" : "SWR: React Hooks for Data Fetching"
+            title ? title + " – Multizoa" : "SWR: React Hooks for Data Fetching"
           }
         />
         <meta name="og:image" content={ogImage} />
