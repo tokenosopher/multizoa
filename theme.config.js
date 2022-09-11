@@ -18,29 +18,15 @@ const Vercel = ({ height = 20 }) => (
   </svg>
 );
 
-const TITLE_WITH_TRANSLATIONS = {
-  "en-US": "React Hooks for Data Fetching",
-  "zh-CN": "用于数据请求的 React Hooks 库",
-  "es-ES": "Biblioteca React Hooks para la obtención de datos",
-  "pt-BR": " React Hooks para Data Fetching",
-  ja: "データ取得のための React Hooks ライブラリ",
-  ko: "데이터 가져오기를 위한 React Hooks",
-  ru: "React хуки для выборки данных",
-};
-
 const FEEDBACK_LINK_WITH_TRANSLATIONS = {
   "en-US": "Question? Give us feedback →",
-  "zh-CN": "有疑问？给我们反馈 →",
-  "pt-BR": "Dúvidas? Nos dê feedback →",
 };
 
 export default {
   projectLink: "https://github.com/vercel/swr",
   docsRepositoryBase: "https://github.com/vercel/swr-site/blob/master/pages",
-  titleSuffix: " – SWR",
   search: true,
   unstable_flexsearch: true,
-  floatTOC: true,
   feedbackLink: () => {
     const { locale } = useRouter();
     return (
@@ -49,20 +35,17 @@ export default {
     );
   },
   feedbackLabels: "feedback",
-  logo: () => {
-    const { locale } = useRouter();
-    return (
+  logo: () =>  (
       <>
         <Logo height={12} />
         <span
           className="mx-2 font-extrabold hidden md:inline select-none"
-          title={"SWR: " + (TITLE_WITH_TRANSLATIONS[locale] || "")}
+          title={"Multizoa - Explaining human society's place in the biological universe"}
         >
-          SWR
+          Multizoa
         </span>
       </>
-    );
-  },
+  ),
   head: ({ title, meta }) => {
     const { route } = useRouter();
 
@@ -129,111 +112,8 @@ export default {
       </>
     );
   },
-  footerEditLink: ({ locale }) => {
-    switch (locale) {
-      case "zh-CN":
-        return "在 GitHub 上编辑本页 →";
-      case "es-ES":
-        return "Edite esta página en GitHub →";
-      case "pt-BR":
-        return "Edite essa página no GitHub →";
-      case "ja":
-        return "Github で編集する →";
-      case "ko":
-        return "Github에서 이 페이지 편집하기 →";
-      case "ru":
-        return "Редактировать на GitHub →";
-      default:
-        return "Edit this page on GitHub →";
-    }
-  },
   footerText: ({ locale }) => {
     switch (locale) {
-      case "zh-CN":
-        return (
-          <a
-            href="https://vercel.com/?utm_source=swr_zh-cn"
-            target="_blank"
-            rel="noopener"
-            className="inline-flex items-center no-underline text-current font-semibold"
-          >
-            <span className="mr-2">由</span>
-            <span className="mr-2">
-              <Vercel />
-            </span>
-            驱动
-          </a>
-        );
-      case "es-ES":
-        return (
-          <a
-            href="https://vercel.com/?utm_source=swr_es-es"
-            target="_blank"
-            rel="noopener"
-            className="inline-flex items-center no-underline text-current font-semibold"
-          >
-            <span className="mr-2">Desarrollado por</span>
-            <span className="mr-2">
-              <Vercel />
-            </span>
-          </a>
-        );
-      case "pt-BR":
-        return (
-          <a
-            href="https://vercel.com/?utm_source=swr_es-es"
-            target="_blank"
-            rel="noopener"
-            className="inline-flex items-center no-underline text-current font-semibold"
-          >
-            <span className="mr-2">Desenvolvido por</span>
-            <span className="mr-2">
-              <Vercel />
-            </span>
-          </a>
-        );
-      case "ja":
-        return (
-          <a
-            href="https://vercel.com/?utm_source=swr_ja"
-            target="_blank"
-            rel="noopener"
-            className="inline-flex items-center no-underline text-current font-semibold"
-          >
-            <span className="mr-2">提供</span>
-            <span className="mr-2">
-              <Vercel />
-            </span>
-          </a>
-        );
-      case "ko":
-        return (
-          <a
-            href="https://vercel.com/?utm_source=swr_ko"
-            target="_blank"
-            rel="noopener"
-            className="inline-flex items-center no-underline text-current font-semibold"
-          >
-            <span className="mr-2">Powered by</span>
-            <span className="mr-2">
-              <Vercel />
-            </span>
-          </a>
-        );
-      case "ru":
-        return (
-          <a
-            href="https://vercel.com/?utm_source=swr_ru"
-            target="_blank"
-            rel="noopener"
-            className="inline-flex items-center no-underline text-current font-semibold"
-          >
-            <span className="mr-2">Работает на</span>
-            <span className="mr-2">
-              <Vercel />
-            </span>
-          </a>
-        );
       default:
         return (
           <a
@@ -242,7 +122,7 @@ export default {
             rel="noopener"
             className="inline-flex items-center no-underline text-current font-semibold"
           >
-            <span className="mr-1">Powered by</span>
+            <span className="mr-1">Creative Commons</span>
             <span>
               <Vercel />
             </span>
@@ -250,13 +130,4 @@ export default {
         );
     }
   },
-  i18n: [
-    { locale: "en-US", text: "English" },
-    { locale: "es-ES", text: "Español" },
-    { locale: "zh-CN", text: "简体中文" },
-    { locale: "pt-BR", text: "Português Brasileiro" },
-    { locale: "ja", text: "日本語" },
-    { locale: "ko", text: "한국어" },
-    { locale: "ru", text: "Русский" },
-  ],
 };
