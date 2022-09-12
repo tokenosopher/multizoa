@@ -102,10 +102,7 @@ export default {
       </>
     );
   },
-  footerText: ({ locale }) => {
-    switch (locale) {
-      default:
-        return (
+  footerText: () => (
           <a
             href="https://vercel.com/?utm_source=swr"
             target="_blank"
@@ -117,7 +114,5 @@ export default {
               <Vercel />
             </span>
           </a>
-        );
+        )
     }
-  },
-};
