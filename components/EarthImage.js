@@ -62,7 +62,7 @@ const Earth = styled.div`
     //animation: spins 10s linear infinite;
     background: url(/images/landing-page/earth-at-night.jpg);
     background-size: cover;
-    margin-left: ${(props) => props.scrollPosition * -1}px;
+    margin-left: ${(props) => props.scrollPosition * -0.5}px;
   }
   @keyframes spins {
     to {
