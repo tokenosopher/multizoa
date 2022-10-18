@@ -6,3 +6,4 @@ export const imgDescStyle = {
   display: "flex",
   justifyContent: "center",
 };
+
