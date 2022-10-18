@@ -60,7 +60,7 @@ const Earth = styled.div`
     width: 200%;
     height: 100%;
     //animation: spins 10s linear infinite;
-    background: url(https://upload.wikimedia.org/wikipedia/commons/b/ba/The_earth_at_night.jpg);
+    background: url(/images/landing-page/earth-at-night.jpg);
     background-size: cover;
     margin-left: ${(props) => props.scrollPosition * -1}px;
   }
