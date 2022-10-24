@@ -1,28 +1,38 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
+import { motion, useScroll } from "framer-motion";
 
 export const EarthImage = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const { scrollY } = useScroll();
+
+  // useEffect(() => {
+  //   document.addEventListener("scroll", () => {
+  //     const position = window.scrollY;
+  //     setScrollPosition(position);
+  //   });
+  //
+  //   return () => {
+  //     document.removeEventListener("scroll", () => {
+  //       const position = window.scrollY;
+  //       setScrollPosition(position);
+  //     });
+  //   };
+  // }, []);
 
   useEffect(() => {
-    document.addEventListener("scroll", () => {
-      const position = window.scrollY;
-      setScrollPosition(position);
+    return scrollY.onChange((latest) => {
+      setScrollPosition(latest);
     });
-
-    return () => {
-      document.removeEventListener("scroll", () => {
-        const position = window.scrollY;
-        setScrollPosition(position);
-      });
-    };
   }, []);
 
   return (
     <EarthContainer>
-      <Earth scrollPosition={scrollPosition}>
-        <div></div>
-      </Earth>
+        <Earth>
+          <motion.div
+              animate={{ x: -scrollPosition * 0.5}} >
+          </motion.div>
+        </Earth>
     </EarthContainer>
   );
 };
@@ -62,11 +72,10 @@ const Earth = styled.div`
     //animation: spins 10s linear infinite;
     background: url(/images/landing-page/earth-at-night.jpg);
     background-size: cover;
-    margin-left: ${(props) => props.scrollPosition * -0.5}px;
   }
-  @keyframes spins {
-    to {
-      transform: translateX(${(props) => props.scrollPosition}px);
-    }
-  }
+  // @keyframes spins {
+  //   to {
+  //     transform: translateX(${(props) => props.scrollPosition}px);
+  //   }
+  // }
     `;
