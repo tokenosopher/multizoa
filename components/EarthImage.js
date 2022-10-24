@@ -29,7 +29,9 @@ export const EarthImage = () => {
   return (
     <EarthContainer>
       <Earth>
-          <motion.img src={"/images/landing-page/earth-at-night.jpg"} style={{width:"1000px"}} animate={{ x: -(scrollPosition * 0.5) }} />
+        <motion.div
+            // animate={{ x: -(scrollPosition * 0.5) }}
+        ></motion.div>
       </Earth>
     </EarthContainer>
   );
@@ -64,9 +66,10 @@ const Earth = styled.div`
 
   }
 
-  img {
+  div {
     width: 200%;
     height: 100%;
+    background: url(/images/landing-page/earth-at-night.jpg);
     background-size: cover;
   }
     `;
