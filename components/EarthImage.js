@@ -28,11 +28,9 @@ export const EarthImage = () => {
 
   return (
     <EarthContainer>
-        <Earth>
-          <motion.div
-              animate={{ x: -scrollPosition * 0.5}} >
-          </motion.div>
-        </Earth>
+      <Earth>
+        <motion.div animate={{ x: -(scrollPosition * 0.5) }}></motion.div>
+      </Earth>
     </EarthContainer>
   );
 };
@@ -50,7 +48,7 @@ const Earth = styled.div`
     left: 0;
     right: 0;
     margin: auto;
-    overflow: hidden;
+    overflow: hidden !important;
     border-radius: 50%;
     box-shadow: 0 0 20px 20px #000 inset, 0 0 20px 2px #000;
 
@@ -69,13 +67,7 @@ const Earth = styled.div`
   div {
     width: 200%;
     height: 100%;
-    //animation: spins 10s linear infinite;
     background: url(/images/landing-page/earth-at-night.jpg);
     background-size: cover;
   }
-  // @keyframes spins {
-  //   to {
-  //     transform: translateX(${(props) => props.scrollPosition}px);
-  //   }
-  // }
     `;
