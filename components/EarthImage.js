@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { motion, useScroll } from "framer-motion";
 
 export const EarthImage = () => {
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(20);
   const { scrollY } = useScroll();
 
   // useEffect(() => {
@@ -21,17 +21,17 @@ export const EarthImage = () => {
   // }, []);
 
   useEffect(() => {
-    return scrollY.onChange((latest) => {
-      setScrollPosition(latest);
+    scrollY.onChange((latest) => {
+      if (latest > 50) {
+        setScrollPosition(latest);
+      }
     });
   }, []);
 
   return (
     <EarthContainer>
       <Earth>
-        <motion.div
-            // animate={{ x: -(scrollPosition * 0.5) }}
-        ></motion.div>
+        <motion.div animate={{ x: -(scrollPosition * 0.5) }}></motion.div>
       </Earth>
     </EarthContainer>
   );
@@ -49,6 +49,7 @@ const Earth = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 1000;
     margin: auto;
     overflow: hidden !important;
     border-radius: 50%;
