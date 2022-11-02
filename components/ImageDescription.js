@@ -1,19 +1,9 @@
-import React from "react";
-import Link from "next/link";
+import { imgDescStyle } from "../styles/miscellaneousInline";
 
-const ImageDescription = ({ text, sources }) => {
+export default function ImageDescription({ children }) {
   return (
-    <p style={{ textAlign: "center", marginTop: "0", fontSize: "14px" }}>
-      <em>{text} </em>
-      {sources.map((source) => (
-        <>
-          <Link key={source.name} href={source.url}>
-            {source.name}
-          </Link>{" "}
-        </>
-      ))}
-    </p>
+    <span style={imgDescStyle}>
+      <em>{children}</em>
+    </span>
   );
-};
-
-export default ImageDescription;
+}

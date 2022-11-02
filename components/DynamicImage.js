@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 //create a function with children that returns a motion.div
-const ImageCreation = ({ children }) => {
+const DynamicImage = ({ image, alt }) => {
 
   const variants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -13,10 +14,10 @@ const ImageCreation = ({ children }) => {
     <>
       <br />
       <motion.div initial={variants.hidden} whileInView={variants.visible}>
-        {children}
+        <Image src={image} alt={alt}/>
       </motion.div>
     </>
   );
 };
 
-export default ImageCreation;
+export default DynamicImage;
