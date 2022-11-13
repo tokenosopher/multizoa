@@ -14,6 +14,7 @@ specifiers:
   prettier: ^2.7.1
   react: ^17.0.2
   react-dom: ^17.0.2
+  react-icons: ^4.6.0
   react-intersection-observer: ^8.26.2
   react-is: ^18.2.0
   styled-components: ^5.3.6
@@ -30,6 +31,7 @@ dependencies:
   nextra-theme-docs: 2.0.0-beta.6_nsrodebypp3mcf7ihyfjqmpudu
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
+  react-icons: 4.6.0_react@17.0.2
   react-intersection-observer: 8.33.1_react@17.0.2
   react-is: 18.2.0
   styled-components: 5.3.6_v5ja746gkdtknuc6tj46sve3be
@@ -2319,6 +2321,14 @@ packages:
       object-assign: 4.1.1
       react: 17.0.2
       scheduler: 0.20.2
+    dev: false
+
+  /react-icons/4.6.0_react@17.0.2:
+    resolution: {integrity: sha512-rR/L9m9340yO8yv1QT1QurxWQvWpbNHqVX0fzMln2HEb9TEIrQRGsqiNFQfiv9/JEUbyHmHPlNTB2LWm2Ttz0g==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 17.0.2
     dev: false
 
   /react-intersection-observer/8.33.1_react@17.0.2:
