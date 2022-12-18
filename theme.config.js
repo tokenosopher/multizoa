@@ -84,7 +84,7 @@ export default {
           }
         />
         <meta name="og:image" content={ogImage} />
-        <meta name="apple-mobile-web-app-title" content="SWR" />
+        <meta name="apple-mobile-web-app-title" content="Multizoa" />
       </>
     );
   },
