@@ -29,4 +29,9 @@ export default {
       </p>
     )
   },
+  useNextSeoProps() {
+    return {
+      titleTemplate: '%s – Multizoa',
+    }
+  },
 };
