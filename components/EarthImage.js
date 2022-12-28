@@ -49,7 +49,7 @@ const Earth = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 14;
     margin: auto;
     overflow: hidden !important;
     border-radius: 50%;
