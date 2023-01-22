@@ -80,7 +80,7 @@ export const EarthImage = () => {
       </Hero>
       <Video>
         <iframe
-          src="https://www.youtube.com/embed/iFBKLJe58FQ"
+          src="https://www.youtube.com/embed/NirJ_yXXDZE"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         ></iframe>
