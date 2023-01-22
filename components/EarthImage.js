@@ -6,7 +6,7 @@ import { HomepageSection } from "./HomepageSection";
 const Star = ({ size, x, y, delay }) => (
   <motion.div
     initial={{ x, y }}
-    animate={{ x: Math.random() * 1000 , y: Math.random() * 1000 }}
+    animate={{ x: Math.random() * 2000 , y: Math.random() * 600 }}
     transition={{ delay, duration: 60, ease: "linear", loop: Infinity, repeatType: "reverse" }}
     style={{
       width: `${size}px`,
@@ -25,8 +25,8 @@ const StarField = ({ numStars }) => {
       <Star
         key={i}
         size={1}
-        x={Math.random() * 3000 - 1000}
-        y={Math.random() * 600 - 100}
+        x={Math.random() * 2000}
+        y={Math.random() * 600}
         delay={Math.random() * 5}
       />
     );
@@ -51,11 +51,19 @@ export const EarthImage = () => {
   return (
     <PageContainer>
       <Hero>
+        <motion.div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            overflow: "hidden",
+          }}
+        >
+          <StarField numStars={100} />
+        </motion.div>
         <MainContainer>
-          <motion.div
-          >
-            <StarField numStars={500} />
-          </motion.div>
           <HeroText>
             <HeroContent>
               <h1>Multizoa Theory</h1>
