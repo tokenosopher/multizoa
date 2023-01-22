@@ -25,6 +25,7 @@
     "react-icons": "^4.6.0",
     "react-intersection-observer": "^8.26.2",
     "react-is": "^18.2.0",
+    "react-star-sky": "^1.0.3",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {

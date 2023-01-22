@@ -1,44 +1,120 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { useEffect, useState } from "react";
 import { motion, useScroll } from "framer-motion";
 import { HomepageSection } from "../components/HomepageSection";
+
+const starFieldWidth = 2000;
+const starFieldHeight = 500;
+const starStartOffset = 600;
+const starOneScrollDuration = "100s";
+const starTwoScrollDuration = "125s";
+const starThreeScrollDuration = "175s";
+const numStarOneStars = 20;
+const numStarTwoStars = 20;
+const numStarThreeStars = 10;
+const numComet = 10;
+
+const Star = ({ size, x, y, delay }) => (
+  <motion.div
+    animate={{ x, y }}
+    transition={{ delay }}
+    style={{
+      width: `${size}px`,
+      height: `${size}px`,
+      borderRadius: "50%",
+      background: "white",
+      position: "absolute",
+    }}
+  />
+);
+
+const StarField = ({ numStars }) => {
+  const stars = [];
+  for (let i = 0; i < numStars; i++) {
+    stars.push(
+      <Star
+        key={i}
+        size={1}
+        x={Math.random() * starFieldWidth}
+        y={Math.random() * starFieldHeight}
+        delay={Math.random() * 5}
+      />
+    );
+  }
+  return <>{stars}</>;
+};
+
+const createStars = (n) => {
+  let stars = `${Math.random() * starFieldWidth}px ${
+    Math.random() * starFieldHeight
+  }px #FFF`;
+  for (let i = 2; i <= n; i++) {
+    stars += ` , ${Math.random() * starFieldWidth}px ${
+      Math.random() * starFieldHeight
+    }px #FFF`;
+  }
+  return stars;
+};
 
 export const EarthImage = () => {
   const [scrollPosition, setScrollPosition] = useState(20);
   const { scrollY } = useScroll();
 
-  // useEffect(() => {
-  //   document.addEventListener("scroll", () => {
-  //     const position = window.scrollY;
-  //     setScrollPosition(position);
-  //   });
-  //
-  //   return () => {
-  //     document.removeEventListener("scroll", () => {
-  //       const position = window.scrollY;
-  //       setScrollPosition(position);
-  //     });
-  //   };
-  // }, []);
-
   useEffect(() => {
     scrollY.onChange((latest) => {
       if (latest > 50) {
-        setScrollPosition(latest);
+      //   setScrollPosition(latest);
       }
     });
-  }, []);
+  }, [])
+
+
 
   return (
     <PageContainer>
       <Hero>
-        <h1>Multizoa Theory</h1>
-        <EarthContainer>
-          <Earth>
-            <motion.div animate={{ x: -(scrollPosition * 0.5) }}></motion.div>
-          </Earth>
-        </EarthContainer>
-        <h2>Redefining our society's place in the Universe.</h2>
+        <MainContainer>
+          <HeroText>
+            <HeroContent>
+              <h1>Multizoa Theory</h1>
+              <EarthContainer>
+                <Earth>
+                  <motion.div animate={{ x: -(scrollPosition * 0.5) }}></motion.div>
+                </Earth>
+              </EarthContainer>
+              <h2>Redefining our society's place in the Universe.</h2>
+            </HeroContent>
+          </HeroText>
+          <SubContainer>
+            <StarTemplate
+              numStars={numStarOneStars}
+              size={1}
+              speed={starOneScrollDuration}
+              className="stars"
+            />
+            <StarTemplate
+              numStars={numStarTwoStars}
+              size={2}
+              speed={starTwoScrollDuration}
+              className="stars2"
+            />
+            <StarTemplate
+              numStars={numStarThreeStars}
+              size={3}
+              speed={starThreeScrollDuration}
+              className="stars3"
+            />
+            <ShootingStarTemplate
+              numStars={numComet}
+              size={5}
+              speed={"10s"}
+              className="comet"
+            />
+          </SubContainer>
+        </MainContainer>
+
+
+
       </Hero>
       <Video>
         <iframe
@@ -80,12 +156,15 @@ export const EarthImage = () => {
         <LearnMoreSectionWrapper>
           <HomepageSection>
             <h3>
-              For a fun and lighthearted introduction to the theory, the book Understanding our Whole is freely available on this website.
+              For a fun and lighthearted introduction to the theory, the book
+              Understanding our Whole is freely available on this website.
             </h3>
           </HomepageSection>
           <HomepageSection>
             <h3>
-              For a more structured analysis of the multizoa theory, the preprint Is Human Society a Multizoa Organism is freely available on this website.
+              For a more structured analysis of the multizoa theory, the
+              preprint Is Human Society a Multizoa Organism is freely available
+              on this website.
             </h3>
           </HomepageSection>
         </LearnMoreSectionWrapper>
@@ -152,8 +231,8 @@ const Hero = styled.div`
 `;
 
 const EarthContainer = styled.div`
-    width: 20%;
-    padding-bottom: 20%;
+    width: 40%;
+    padding-bottom: 40%;
     position: relative;
   
     @media (max-width: 1200px) {
@@ -256,3 +335,85 @@ const LearnMoreSectionWrapper = styled.div`
     justify-content: inherit;
   }
 `;
+
+const MainContainer = styled.div`
+  display: block;
+  position: relative;
+  width: 100%;
+`;
+
+const SubContainer = styled.div`
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  top:0;
+  left: 0;
+`;
+
+const StarTemplate = styled.div`
+  z-index: -1;
+  width: ${(props) => props.size}px;
+  height: ${(props) => props.size}px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: ${(props) => createStars(props.numStars)};
+  animation: ${(props) => keyframes`
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-${starFieldHeight}px) translateX(-${starFieldWidth}px);
+    }
+  `} ${(props) => props.speed} linear infinite;
+  &:after {
+    content: " ";
+    top: -${starStartOffset}px;
+    width: ${(props) => props.size}px;
+    height: ${(props) => props.size}px;
+    border-radius: 50%;
+    position: absolute;
+    background: transparent;
+    box-shadow: ${(props) => createStars(props.numStars)};
+  }
+`;
+
+const ShootingStarTemplate = styled.div`
+  z-index: -1;
+  width: ${(props) => props.size}px;
+  height: ${(props) => props.size + 80}px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  animation: ${(props) => keyframes`
+    from {
+      transform: translateY(0px) translateX(0px) rotate(-45deg);
+      opacity: 1;
+height: ${props.size}px;
+}
+to {
+transform: translateY(-${starFieldHeight}px) translateX(-${starFieldWidth}px) rotate(-45deg);
+opacity: 1;
+height: 800px;
+}
+`} ${(props) => props.speed} linear infinite;`
+;
+
+const HeroText = styled.div`
+  width: 100%;
+  position: relative; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;`
+;
+
+const HeroContent = styled.div` 
+  z-index: 1; 
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;`
+;
