@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { motion, useScroll } from "framer-motion";
+import { HomepageSection } from "../components/HomepageSection";
 
 export const EarthImage = () => {
   const [scrollPosition, setScrollPosition] = useState(20);
@@ -29,18 +30,137 @@ export const EarthImage = () => {
   }, []);
 
   return (
-    <EarthContainer>
-      <Earth>
-        <motion.div animate={{ x: -(scrollPosition * 0.5) }}></motion.div>
-      </Earth>
-    </EarthContainer>
+    <PageContainer>
+      <Hero>
+        <h1>Multizoa Theory</h1>
+        <EarthContainer>
+          <Earth>
+            <motion.div animate={{ x: -(scrollPosition * 0.5) }}></motion.div>
+          </Earth>
+        </EarthContainer>
+        <h2>Redefining our society's place in the Universe.</h2>
+      </Hero>
+      <Video>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/iFBKLJe58FQ"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </Video>
+
+      <TLDR>
+        <HomepageSection>
+          <h3>Multizoa organisms are organisms made of many animals.</h3>
+        </HomepageSection>
+        <HomepageSection>
+          <h3>
+            Human society is a multizoa organism whose fundamental unit is the
+            human.
+          </h3>
+        </HomepageSection>
+        <HomepageSection>
+          <h3>
+            This view has all manner of far-reaching implications for how we see
+            the world.
+          </h3>
+        </HomepageSection>
+        {/*<TextContainer>*/}
+        {/*  <p>*/}
+        {/*    Multizoa Organisms are organisms made of many animals. Human society*/}
+        {/*    is a multizoa organism whose fundamental unit is the human.*/}
+        {/*  </p>*/}
+        {/*</TextContainer>*/}
+      </TLDR>
+      <LearnMore>
+        <h2>Learn More</h2>
+        <LearnMoreSectionWrapper>
+          <HomepageSection>
+            <h3>
+              For a fun and lighthearted introduction to the theory, the book Understanding our Whole is freely available on this website.
+            </h3>
+          </HomepageSection>
+          <HomepageSection>
+            <h3>
+              For a more structured analysis of the multizoa theory, the preprint Is Human Society a Multizoa Organism is freely available on this website.
+            </h3>
+          </HomepageSection>
+        </LearnMoreSectionWrapper>
+      </LearnMore>
+    </PageContainer>
   );
 };
 
+const PageContainer = styled.div`
+  width: 100%;
+  height: 100%;
+
+  background-color: #111111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+
+  h1 {
+    color: #fff;
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    //make text color have a linear gradient
+    background-image: linear-gradient(146deg, #fff, #757a7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+  }
+
+  h2 {
+    margin-top: 2rem;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2rem;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(10deg, #fff, #a5b3b7);
+  }
+
+  h3 {
+    margin-top: 2rem;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2rem;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(10deg, #fff, #a5b3b7);
+  }
+`;
+
+const Hero = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 const EarthContainer = styled.div`
-    width: 100%;
-    padding-bottom: 100%;
+    width: 20%;
+    padding-bottom: 20%;
     position: relative;
+  
+    @media (max-width: 1200px) {
+      width: 50%;
+      padding-bottom: 50%;
+    }
+  
   `;
 
 const Earth = styled.div`
@@ -74,3 +194,65 @@ const Earth = styled.div`
     background-size: cover;
   }
     `;
+
+const Video = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  background: black;
+  padding: 2rem;
+`;
+
+const TLDR = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #313131 0%, black 60%);
+  padding: 2rem;
+  
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    justify-content: inherit;
+  }
+`;
+
+const LearnMore = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(180deg, black 0%, #313131 60%, );
+  padding: 2rem;
+
+  h2 {
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    //make text color have a linear gradient
+    background-image: linear-gradient(146deg, #fff, #757a7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+`;
+
+const LearnMoreSectionWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background: linear-gradient(180deg, black 0%, #313131 60%, );
+  padding: 2rem;
+  
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    justify-content: inherit;
+  }
+`;

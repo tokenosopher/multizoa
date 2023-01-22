@@ -1,7 +1,10 @@
 {
   "index": {
     "title": "Introduction",
-    "type": "page"
+    "type": "page",
+    "theme": {
+      "layout": "raw"
+    }
   },
   "understanding-our-whole": {
     "title": "Understanding Our Whole (Full Book)",
