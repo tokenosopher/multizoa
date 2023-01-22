@@ -7,7 +7,7 @@ const Star = ({ size, x, y, delay }) => (
   <motion.div
     initial={{ x, y }}
     animate={{ x: Math.random() * 2000 , y: Math.random() * 600 }}
-    transition={{ delay, duration: 60, ease: "linear", loop: Infinity, repeatType: "reverse" }}
+    transition={{ duration: 60, ease: "linear", loop: Infinity, repeatType: "reverse" }}
     style={{
       width: `${size}px`,
       height: `${size}px`,
@@ -27,7 +27,6 @@ const StarField = ({ numStars }) => {
         size={1}
         x={Math.random() * 2000}
         y={Math.random() * 600}
-        delay={Math.random() * 5}
       />
     );
   }
@@ -103,12 +102,6 @@ export const EarthImage = () => {
             the world.
           </h3>
         </HomepageSection>
-        {/*<TextContainer>*/}
-        {/*  <p>*/}
-        {/*    Multizoa Organisms are organisms made of many animals. Human society*/}
-        {/*    is a multizoa organism whose fundamental unit is the human.*/}
-        {/*  </p>*/}
-        {/*</TextContainer>*/}
       </TLDR>
       <LearnMore>
         <h2>Learn More</h2>
