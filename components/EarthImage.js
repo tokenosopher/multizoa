@@ -1,7 +1,9 @@
 import styled from "styled-components";
+
 import { useEffect, useState } from "react";
 import { motion, useScroll } from "framer-motion";
 import { HomepageSection } from "./HomepageSection";
+import Link from "next/link";
 
 const Star = ({ size, x, y }) => (
   <motion.div
@@ -109,7 +111,11 @@ export const EarthImage = () => {
               For a fun and lighthearted introduction to the theory, the book
               Understanding our Whole is freely available on this website.
             </h3>
-            <Button href="/understanding-our-whole"><p>Read the Book →</p></Button>
+            <Button>
+              <Link href={"/understanding-our-whole/front-cover"}>
+                <p>Read the Book →</p>
+              </Link>
+            </Button>
           </HomepageSection>
           <HomepageSection>
             <h3>
@@ -117,7 +123,11 @@ export const EarthImage = () => {
               preprint Is Human Society a Multizoa Organism is freely available
               on this website.
             </h3>
-            <Button href="/is-human-society-a-multizoa-organism"><p>Read the Paper →</p></Button>
+            <Button>
+              <Link href={"/is-human-society-an-organism-comprised-of-many-animals/2-title-and-abstract"}>
+                <p>Read the Paper →</p>
+              </Link>
+            </Button>
           </HomepageSection>
         </LearnMoreSectionWrapper>
       </LearnMore>
