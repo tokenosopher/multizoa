@@ -7,7 +7,7 @@ const Star = ({ size, x, y, delay }) => (
   <motion.div
     initial={{ x, y }}
     animate={{ x: Math.random() * 1000 , y: Math.random() * 1000 }}
-    transition={{ delay, duration: 30, ease: "linear", loop: Infinity, repeatType: "reverse" }}
+    transition={{ delay, duration: 60, ease: "linear", loop: Infinity, repeatType: "reverse" }}
     style={{
       width: `${size}px`,
       height: `${size}px`,
