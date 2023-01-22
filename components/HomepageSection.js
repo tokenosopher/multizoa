@@ -19,7 +19,7 @@ const Section = styled.section`
   display: flex;
   
   @media (max-width: 1024px) {
-    max-width: 65%;
+    max-width: 100%;
     min-height: inherit;
   }
 `;

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { motion, useScroll } from "framer-motion";
 import { HomepageSection } from "./HomepageSection";
 
-const Star = ({ size, x, y, delay }) => (
+const Star = ({ size, x, y }) => (
   <motion.div
     initial={{ x, y }}
     animate={{ x: Math.random() * 2000 , y: Math.random() * 600 }}
@@ -78,8 +78,6 @@ export const EarthImage = () => {
       </Hero>
       <Video>
         <iframe
-          width="560"
-          height="315"
           src="https://www.youtube.com/embed/iFBKLJe58FQ"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -228,6 +226,7 @@ const Earth = styled.div`
 
 const Video = styled.div`
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -236,6 +235,12 @@ const Video = styled.div`
   background: black;
   padding: 2rem;
   z-index: 10;
+  
+  iframe {
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+  }
 `;
 
 const TLDR = styled.div`
@@ -249,6 +254,7 @@ const TLDR = styled.div`
   @media (max-width: 1024px) {
     flex-direction: column;
     justify-content: inherit;
+    padding: 0;
   }
 `;
 
@@ -272,6 +278,12 @@ const LearnMore = styled.div`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+  
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    justify-content: inherit;
+    padding: 0;
+  }
 `;
 
 const LearnMoreSectionWrapper = styled.div`
@@ -286,6 +298,7 @@ const LearnMoreSectionWrapper = styled.div`
   @media (max-width: 1024px) {
     flex-direction: column;
     justify-content: inherit;
+    padding: 0;
   }
 `;
 
