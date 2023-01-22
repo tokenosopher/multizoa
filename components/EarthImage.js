@@ -6,8 +6,13 @@ import { HomepageSection } from "./HomepageSection";
 const Star = ({ size, x, y }) => (
   <motion.div
     initial={{ x, y }}
-    animate={{ x: Math.random() * 2000 , y: Math.random() * 600 }}
-    transition={{ duration: 60, ease: "linear", loop: Infinity, repeatType: "reverse" }}
+    animate={{ x: Math.random() * 2000, y: Math.random() * 600 }}
+    transition={{
+      duration: 60,
+      ease: "linear",
+      loop: Infinity,
+      repeatType: "reverse",
+    }}
     style={{
       width: `${size}px`,
       height: `${size}px`,
@@ -22,12 +27,7 @@ const StarField = ({ numStars }) => {
   const stars = [];
   for (let i = 0; i < numStars; i++) {
     stars.push(
-      <Star
-        key={i}
-        size={1}
-        x={Math.random() * 2000}
-        y={Math.random() * 600}
-      />
+      <Star key={i} size={1} x={Math.random() * 2000} y={Math.random() * 600} />
     );
   }
   return <>{stars}</>;
@@ -43,9 +43,7 @@ export const EarthImage = () => {
         setScrollPosition(latest);
       }
     });
-  }, [])
-
-
+  }, []);
 
   return (
     <PageContainer>
@@ -68,7 +66,9 @@ export const EarthImage = () => {
               <h1>Multizoa Theory</h1>
               <EarthContainer>
                 <Earth>
-                  <motion.div animate={{ x: -(scrollPosition * 0.5) }}></motion.div>
+                  <motion.div
+                    animate={{ x: -(scrollPosition * 0.5) }}
+                  ></motion.div>
                 </Earth>
               </EarthContainer>
               <h2>Redefining our society's place in the Universe.</h2>
@@ -109,6 +109,7 @@ export const EarthImage = () => {
               For a fun and lighthearted introduction to the theory, the book
               Understanding our Whole is freely available on this website.
             </h3>
+            <Button href="/understanding-our-whole"><p>Read the Book →</p></Button>
           </HomepageSection>
           <HomepageSection>
             <h3>
@@ -116,6 +117,7 @@ export const EarthImage = () => {
               preprint Is Human Society a Multizoa Organism is freely available
               on this website.
             </h3>
+            <Button href="/is-human-society-a-multizoa-organism"><p>Read the Paper →</p></Button>
           </HomepageSection>
         </LearnMoreSectionWrapper>
       </LearnMore>
@@ -313,14 +315,29 @@ const HeroText = styled.div`
   position: relative; 
   display: flex; 
   align-items: center; 
-  justify-content: center;`
-;
-
+  justify-content: center;`;
 const HeroContent = styled.div` 
   z-index: 1; 
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;`
-;
+  text-align: center;`;
+
+// create a blue, beautiful button with a hover effect
+const Button = styled.button`
+  background: #077afd;
+  width: 180px;
+  height: 50px;
+  border-radius: 50px;
+  border: 2px solid #1ea7fd;
+  color: white;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  transition: 0.5s all ease-out;
+
+  &:hover {
+    //make the text move to the right
+    transform: translateX(10px);
+  }
+`;

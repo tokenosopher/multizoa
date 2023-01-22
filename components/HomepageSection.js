@@ -12,14 +12,15 @@ const Section = styled.section`
   margin: 2rem 2rem;
   border-radius: 10px;
   border: 1px solid #313131;
+  flex-direction: column;
   max-width: 40%;
   min-height: 80%;
-  align-items: center;
   justify-content: center;
   display: flex;
   
   @media (max-width: 1024px) {
     max-width: 100%;
     min-height: inherit;
+    align-items: center;
   }
 `;
