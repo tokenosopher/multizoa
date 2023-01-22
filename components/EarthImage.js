@@ -1,23 +1,13 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { motion, useScroll } from "framer-motion";
-import { HomepageSection } from "../components/HomepageSection";
-
-const starFieldWidth = 2000;
-const starFieldHeight = 500;
-const starStartOffset = 600;
-const starOneScrollDuration = "100s";
-const starTwoScrollDuration = "125s";
-const starThreeScrollDuration = "175s";
-const numStarOneStars = 20;
-const numStarTwoStars = 20;
-const numStarThreeStars = 10;
-const numComet = 10;
+import { HomepageSection } from "./HomepageSection";
 
 const Star = ({ size, x, y, delay }) => (
   <motion.div
-    animate={{ x, y }}
-    transition={{ delay }}
+    initial={{ x, y }}
+    animate={{ x: Math.random() * 1000 , y: Math.random() * 1000 }}
+    transition={{ delay, duration: 30, ease: "linear", loop: Infinity, repeatType: "reverse" }}
     style={{
       width: `${size}px`,
       height: `${size}px`,
@@ -35,25 +25,13 @@ const StarField = ({ numStars }) => {
       <Star
         key={i}
         size={1}
-        x={Math.random() * starFieldWidth}
-        y={Math.random() * starFieldHeight}
+        x={Math.random() * 3000 - 1000}
+        y={Math.random() * 600 - 100}
         delay={Math.random() * 5}
       />
     );
   }
   return <>{stars}</>;
-};
-
-const createStars = (n) => {
-  let stars = `${Math.random() * starFieldWidth}px ${
-    Math.random() * starFieldHeight
-  }px #FFF`;
-  for (let i = 2; i <= n; i++) {
-    stars += ` , ${Math.random() * starFieldWidth}px ${
-      Math.random() * starFieldHeight
-    }px #FFF`;
-  }
-  return stars;
 };
 
 export const EarthImage = () => {
@@ -63,7 +41,7 @@ export const EarthImage = () => {
   useEffect(() => {
     scrollY.onChange((latest) => {
       if (latest > 50) {
-      //   setScrollPosition(latest);
+        setScrollPosition(latest);
       }
     });
   }, [])
@@ -74,6 +52,10 @@ export const EarthImage = () => {
     <PageContainer>
       <Hero>
         <MainContainer>
+          <motion.div
+          >
+            <StarField numStars={500} />
+          </motion.div>
           <HeroText>
             <HeroContent>
               <h1>Multizoa Theory</h1>
@@ -85,36 +67,7 @@ export const EarthImage = () => {
               <h2>Redefining our society's place in the Universe.</h2>
             </HeroContent>
           </HeroText>
-          <SubContainer>
-            <StarTemplate
-              numStars={numStarOneStars}
-              size={1}
-              speed={starOneScrollDuration}
-              className="stars"
-            />
-            <StarTemplate
-              numStars={numStarTwoStars}
-              size={2}
-              speed={starTwoScrollDuration}
-              className="stars2"
-            />
-            <StarTemplate
-              numStars={numStarThreeStars}
-              size={3}
-              speed={starThreeScrollDuration}
-              className="stars3"
-            />
-            <ShootingStarTemplate
-              numStars={numComet}
-              size={5}
-              speed={"10s"}
-              className="comet"
-            />
-          </SubContainer>
         </MainContainer>
-
-
-
       </Hero>
       <Video>
         <iframe
@@ -122,9 +75,7 @@ export const EarthImage = () => {
           height="315"
           src="https://www.youtube.com/embed/iFBKLJe58FQ"
           title="YouTube video player"
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
         ></iframe>
       </Video>
 
@@ -283,6 +234,7 @@ const Video = styled.div`
   margin-top: 2rem;
   background: black;
   padding: 2rem;
+  z-index: 10;
 `;
 
 const TLDR = styled.div`
@@ -337,69 +289,10 @@ const LearnMoreSectionWrapper = styled.div`
 `;
 
 const MainContainer = styled.div`
-  display: block;
   position: relative;
   width: 100%;
+  height: 100%;
 `;
-
-const SubContainer = styled.div`
-  position: absolute;
-  height: 10px;
-  width: 10px;
-  top:0;
-  left: 0;
-`;
-
-const StarTemplate = styled.div`
-  z-index: -1;
-  width: ${(props) => props.size}px;
-  height: ${(props) => props.size}px;
-  border-radius: 50%;
-  background: transparent;
-  box-shadow: ${(props) => createStars(props.numStars)};
-  animation: ${(props) => keyframes`
-    from {
-      transform: translateY(0px);
-    }
-    to {
-      transform: translateY(-${starFieldHeight}px) translateX(-${starFieldWidth}px);
-    }
-  `} ${(props) => props.speed} linear infinite;
-  &:after {
-    content: " ";
-    top: -${starStartOffset}px;
-    width: ${(props) => props.size}px;
-    height: ${(props) => props.size}px;
-    border-radius: 50%;
-    position: absolute;
-    background: transparent;
-    box-shadow: ${(props) => createStars(props.numStars)};
-  }
-`;
-
-const ShootingStarTemplate = styled.div`
-  z-index: -1;
-  width: ${(props) => props.size}px;
-  height: ${(props) => props.size + 80}px;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-  animation: ${(props) => keyframes`
-    from {
-      transform: translateY(0px) translateX(0px) rotate(-45deg);
-      opacity: 1;
-height: ${props.size}px;
-}
-to {
-transform: translateY(-${starFieldHeight}px) translateX(-${starFieldWidth}px) rotate(-45deg);
-opacity: 1;
-height: 800px;
-}
-`} ${(props) => props.speed} linear infinite;`
-;
 
 const HeroText = styled.div`
   width: 100%;
