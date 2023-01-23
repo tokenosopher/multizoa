@@ -143,7 +143,6 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 100px;
 
   h1 {
     color: #fff;
@@ -184,8 +183,9 @@ const PageContainer = styled.div`
 `;
 
 const Hero = styled.div`
+  padding-top: 100px;
   width: 100%;
-  max-width: 1200px;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -243,7 +243,6 @@ const Video = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
   background: black;
   padding: 2rem;
   z-index: 10;
@@ -260,7 +259,7 @@ const TLDR = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, #313131 0%, black 60%);
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
   padding: 2rem;
   
   @media (max-width: 1024px) {
@@ -276,7 +275,7 @@ const LearnMore = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: linear-gradient(180deg, black 0%, #313131 60%, );
+  background: linear-gradient(180deg, #313131 0%, black 60%);
   padding: 2rem;
 
   h2 {
@@ -304,7 +303,7 @@ const LearnMoreSectionWrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  background: linear-gradient(180deg, black 0%, #313131 60%, );
+  //background: radial-gradient(ellipse at bottom, #111111 0%, #090A0F 100%);
   padding: 2rem;
   
   @media (max-width: 1024px) {
