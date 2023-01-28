@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 //make HomePageSection a component with children
-export const HomepageSection = ({ children }) => {
-  return <Section>{children}</Section>;
+export const HomepageSection = ({ children, color }) => {
+  return <Section color={color}>{children}</Section>;
 }
 
-const Section = styled.section`
-  background-color: #202020;
+const Section = styled.div`
+  //get background color from prop
+  background-color: ${(props) => props.color ? props.color: "#111111"};
   color: #fff;
   padding: 2rem;
   margin: 2rem 2rem;

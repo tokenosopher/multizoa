@@ -87,16 +87,16 @@ export const EarthImage = () => {
       </Video>
 
       <TLDR>
-        <HomepageSection>
+        <HomepageSection  color={"#0e131b"}>
           <h3>Multizoa organisms are organisms made of many animals.</h3>
         </HomepageSection>
-        <HomepageSection>
+        <HomepageSection  color={"#0e131b"}>
           <h3>
             Human society is a multizoa organism whose fundamental unit is the
             human.
           </h3>
         </HomepageSection>
-        <HomepageSection>
+        <HomepageSection  color={"#0e131b"}>
           <h3>
             This view has all manner of far-reaching implications for how we see
             the world.
