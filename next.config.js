@@ -9,8 +9,8 @@ module.exports = withNextra({
   redirects: () => {
     return [
       {
-        source: "/fullbook",
-        destination: "/fullbook/front-cover",
+        source: "/understanding-our-whole",
+        destination: "/understanding-our-whole/front-cover",
         statusCode: 301,
       },
       {
