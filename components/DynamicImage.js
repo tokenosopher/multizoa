@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+
 //create a function with children that returns a motion.div
 const DynamicImage = ({ image, alt }) => {
 
@@ -14,7 +15,7 @@ const DynamicImage = ({ image, alt }) => {
     <>
       <br />
       <motion.div initial={variants.hidden} whileInView={variants.visible}>
-        <Image src={image} alt={alt}/>
+        <Image src={image} alt={alt} placeholder={"blur"} blurDataURL={image.base64}/>
       </motion.div>
     </>
   );

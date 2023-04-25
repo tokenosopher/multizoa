@@ -13,11 +13,12 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@reach/skip-nav": "^0.16.0",
+    "browserslist": ">=4.0.0",
     "focus-visible": "^5.1.0",
     "framer-motion": "6",
     "intersection-observer": "^0.10.0",
     "markdown-to-jsx": "^6.11.4",
-    "next": "^12.2.0",
+    "next": "^12.3.4",
     "nextra": "2.0.1",
     "nextra-theme-docs": "^2.0.1",
     "react": "^17.0.2",
@@ -25,7 +26,6 @@
     "react-icons": "^4.6.0",
     "react-intersection-observer": "^8.26.2",
     "react-is": "^18.2.0",
-    "react-star-sky": "^1.0.3",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
